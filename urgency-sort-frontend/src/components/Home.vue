@@ -46,6 +46,10 @@
                   <th scope="row"><i class="fas fa-info mr-2"></i>Other</th>
                   <td>{{request.needothers}}</td>
                 </tr>
+                <tr v-if="request.requestee_phone">
+                  <th scope="row"><i class="fas fa-phone mr-2"></i>Phone</th>
+                  <td>{{request.requestee_phone}}</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -62,6 +66,7 @@
           <button class="btn" v-on:click="setRequestReport(3)" style="background: #ff9b9b">Critical</button>
         </div>
       </div>
+      <div class="text-muted py-2" style="font-size: 1em">Sourced from keralarescue.in</div>
     </div>
   </div>
 </template>
