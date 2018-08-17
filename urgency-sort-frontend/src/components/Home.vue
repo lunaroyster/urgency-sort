@@ -58,7 +58,7 @@
       <div class="py-4" v-else>Downloading requests: {{downloadMBs}} MBs</div>
       <div class="">
         <button class="btn" v-on:click="newRequest">Skip request</button>
-        <button class="btn" v-on:click="setRequestReport(-1)">Spam</button>
+        <!--<button class="btn" v-on:click="setRequestReport(-1)">Spam</button>-->
         <div class="btn-group" role="group" aria-label="Basic example">
           <button class="btn" v-on:click="setRequestReport(0)" style="background: lightgreen">Not Urgent</button>
           <button class="btn" v-on:click="setRequestReport(1)" style="background: #ffff84">Urgent</button>
