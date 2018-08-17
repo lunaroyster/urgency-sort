@@ -37,6 +37,7 @@ class RequestService {
     this.waitingReports = {};
     let url = 'https://us-central1-keralarescue-fef8e.cloudfunctions.net/makeReports';
     await axios.post(url, data);
+    window.gtag('event', 'flush');
   }
   setRequestReport(id, report) {
     if(typeof report !== "number") return;
