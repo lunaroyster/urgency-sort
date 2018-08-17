@@ -43,10 +43,12 @@
       <div class="">
         <button class="btn" v-on:click="newRequest">Skip request</button>
         <button class="btn" v-on:click="setRequestReport(-1)">Spam</button>
-        <button class="btn" v-on:click="setRequestReport(0)">Not Urgent</button>
-        <button class="btn" v-on:click="setRequestReport(1)">Urgent</button>
-        <button class="btn" v-on:click="setRequestReport(2)">Very Urgent</button>
-        <button class="btn" v-on:click="setRequestReport(3)">First Priority Urgent</button>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button class="btn" v-on:click="setRequestReport(0)" style="background: lightgreen">Not Urgent</button>
+          <button class="btn" v-on:click="setRequestReport(1)" style="background: #ffff84">Urgent</button>
+          <button class="btn" v-on:click="setRequestReport(2)" style="background: #ffd27f">Very Urgent</button>
+          <button class="btn" v-on:click="setRequestReport(3)" style="background: #ff9b9b">Critical</button>
+        </div>
       </div>
     </div>
   </div>
