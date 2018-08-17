@@ -16,6 +16,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.0.0",
+    "download-json-webpack-plugin": "^0.1.0",
+    "moment": "^2.22.2",
     "node-sass": "^4.8.1",
     "sass-loader": "^6.0.7",
     "vue": "^2.5.2",
