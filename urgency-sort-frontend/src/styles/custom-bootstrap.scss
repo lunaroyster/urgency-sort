@@ -3,3 +3,10 @@
 body {
     background-color: #ededed;
 }
+
+.btn {
+    transition-duration: 1s all;
+    &:hover {
+        background-color: rgb(191, 191, 191);
+    }
+}
