@@ -30,8 +30,8 @@ const generateUrgencies = async ()=> {
     for(let i in reports) {
       if(reports[i]==-1) reports[i] = 0; //Ignoring spam reports
     }
-    let score = reports.reduce((a,b)=>a+b)/reports.length; //Using averages. Switch with Wilson Score when there's enough data.
-    urgencies[doc.id] = score;
+    let avgScore = reports.reduce((a,b)=>a+b)/reports.length;
+    urgencies[doc.id] = {avg: avgScore};
   });
   await db.collection('urgencyCaches').doc('cache').set({time: Date.now(), urgencies});
   return urgencies;
@@ -40,9 +40,7 @@ const generateUrgencies = async ()=> {
 exports.getUrgencies = functions.https.onRequest(async (req, res)=> {
   cors(req, res, () => {});
   let cacheDoc = await db.collection('urgencyCaches').doc('cache').get();
-  let urgencies = cacheDoc.data().urgencies;
-  if((Date.now() - (cacheDoc.data().time||0)) > 3600000) {
-    urgencies = await generateUrgencies();
-  }
-  res.json(urgencies);
+  let cacheData = cacheDoc.data();
+  if(!cacheData || ((Date.now() - (cacheData.time||0)) > 3600000)) return res.json(await generateUrgencies());
+  res.json(cacheData.urgencies);
 });
