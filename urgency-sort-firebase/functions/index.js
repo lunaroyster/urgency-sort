@@ -10,11 +10,6 @@ db.settings({
     timestampsInSnapshots: true
 });
 
-exports.test = functions.https.onRequest(async (req, res)=> {
-    let request = await db.collection('requests').doc('11868').get();
-    res.send(request.data());
-});
-
 exports.makeReports = functions.https.onRequest(async (req, res)=> {
    let reports = req.body.reports;
    let reportIDs = Object.keys(reports);
