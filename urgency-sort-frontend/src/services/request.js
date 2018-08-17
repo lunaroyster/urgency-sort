@@ -1,5 +1,4 @@
 import axios from 'axios';
-import download from './download.json';
 
 class RequestService {
   constructor() {
@@ -9,7 +8,8 @@ class RequestService {
   }
   async getRequests() {
     if(this.downloadedRequests) return this.downloadedRequests;
-    this.downloadedRequests = download; //TODO: Switch with download URL
+    let response = await axios.get('/static/data.json');
+    this.downloadedRequests = response.data;
     return this.downloadedRequests;
   }
   async getRequestAtRandom() {
