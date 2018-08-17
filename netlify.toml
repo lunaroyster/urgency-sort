@@ -7,5 +7,5 @@
 
 [build]
   base    = "urgency-sort-frontend"
-  publish = "dist"
+  publish = "urgency-sort-frontend/dist"
   command = "npm run build"
