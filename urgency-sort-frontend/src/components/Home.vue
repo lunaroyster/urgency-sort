@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <div class="container main">
-      <div class="py-2" v-if="request">
+      <div class="py-4" v-if="request">
         <div class="text-muted">{{getFrom(request.dateadded)}}</div>
         <div v-if="request.needfood">
           Food needed:
