@@ -33,9 +33,10 @@ class RequestService {
     return this.getRequestAtRandom();
   }
   async flushReports() {
-    let url = 'https://us-central1-keralarescue-fef8e.cloudfunctions.net/makeReports';
-    await axios.post(url, {reports: this.waitingReports});
+    let data = JSON.parse(JSON.stringify({reports: this.waitingReports}));
     this.waitingReports = {};
+    let url = 'https://us-central1-keralarescue-fef8e.cloudfunctions.net/makeReports';
+    await axios.post(url, data);
   }
   setRequestReport(id, report) {
     if(typeof report !== "number") return;
