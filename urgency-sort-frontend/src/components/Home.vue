@@ -2,47 +2,48 @@
   <div id="home">
     <div class="container main">
       <div class="py-4" v-if="request">
-        <div class="text-muted">Requested {{getFrom(request.dateadded)}} for <span v-if="request.is_request_for_others">someone else</span><span v-else>self</span></div>
+        <h5 class="text-muted">Request #{{request.id}}</h5>
+        <div class="text-muted">{{getFrom(request.dateadded)}} for <span v-if="request.is_request_for_others">someone else</span><span v-else>self</span></div>
         <div class="row">
           <div class="col-12 col-6-md">
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col-2">Need</th>
-                  <th scope="col-10">Description</th>
+                  <th scope="col-3">Need</th>
+                  <th scope="col-9">Description</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-if="request.needfood">
-                  <th scope="row"><i class="fas fa-cookie"></i>Food</th>
+                  <th scope="row"><i class="fas fa-cookie mr-2"></i>Food</th>
                   <td>{{request.detailfood}}</td>
                 </tr>
                 <tr v-if="request.needwater">
-                  <th scope="row"><i class="fas fa-tint"></i>Water</th>
+                  <th scope="row"><i class="fas fa-tint mr-2"></i>Water</th>
                   <td>{{request.detailwater}}</td>
                 </tr>
                 <tr v-if="request.needcloth">
-                  <th scope="row"><i class="fas fa-tshirt"></i>Clothing</th>
+                  <th scope="row"><i class="fas fa-tshirt mr-2"></i>Clothing</th>
                   <td>{{request.detailcloth}}</td>
                 </tr>
                 <tr v-if="request.needkit_util">
-                  <th scope="row"><i class="fas fa-utensils"></i>Kitchen Utilities</th>
+                  <th scope="row"><i class="fas fa-utensils mr-2"></i>Kitchen Utilities</th>
                   <td>{{request.detailkit_util}}</td>
                 </tr>
                 <tr v-if="request.needtoilet">
-                  <th scope="row"><i class="fas fa-shower"></i>Toiletries</th>
+                  <th scope="row"><i class="fas fa-shower mr-2"></i>Toiletries</th>
                   <td>{{request.detailtoilet}}</td>
                 </tr>
                 <tr v-if="request.needmed">
-                  <th scope="row"><i class="fas fa-briefcase-medical"></i>Medications</th>
+                  <th scope="row"><i class="fas fa-briefcase-medical mr-2"></i>Medications</th>
                   <td>{{request.detailmed}}</td>
                 </tr>
                 <tr v-if="request.needrescue">
-                  <th scope="row"><i class="fas fa-people-carry"></i>Rescue</th>
+                  <th scope="row"><i class="fas fa-people-carry mr-2"></i>Rescue</th>
                   <td>{{request.detailrescue}}</td>
                 </tr>
                 <tr v-if="request.needothers">
-                  <th scope="row"><i class="fas fa-info"></i>Other</th>
+                  <th scope="row"><i class="fas fa-info mr-2"></i>Other</th>
                   <td>{{request.needothers}}</td>
                 </tr>
               </tbody>
