@@ -1,16 +1,30 @@
 import axios from 'axios';
+import Vue from 'vue';
 
 class RequestService {
   constructor() {
     this.downloadedRequests = null;
     this.waitingReports = {};
     this.reportedRequests = [];
+    this.eventCallbacks = {
+      onDownloadProgress: [],
+    };
   }
   async getRequests() {
     if(this.downloadedRequests) return this.downloadedRequests;
-    let response = await axios.get('/static/data.json');
+    let response = await axios.get('/static/data.json', {
+      onDownloadProgress: (event)=> {this.fireDownloadProgress(event)}
+    });
     this.downloadedRequests = response.data;
     return this.downloadedRequests;
+  }
+  onDownloadProgress(cb) {
+    this.eventCallbacks.onDownloadProgress.push(cb);
+  }
+  fireDownloadProgress(event) {
+    for(let cb of this.eventCallbacks.onDownloadProgress) {
+      cb(event)
+    }
   }
   async getRequestAtRandom() {
     let requests = await this.getRequests();

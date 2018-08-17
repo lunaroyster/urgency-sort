@@ -39,7 +39,7 @@
           <span v-else>Request for self</span>
         </div>
       </div>
-      <div class="py-4" v-else>Waiting for requests to be downloaded...</div>
+      <div class="py-4" v-else>Downloading requests: {{downloadMBs}} MBs</div>
       <div class="">
         <button class="btn" v-on:click="newRequest">Skip request</button>
         <button class="btn" v-on:click="setRequestReport(-1)">Spam</button>
@@ -55,13 +55,13 @@
 <script>
 import requestService from '@/services/request';
 import moment from 'moment';
-console.log(moment);
 
 export default {
   name: 'Home',
   data() {
     return {
       request: null,
+      bytesDown: 0
     };
   },
   methods: {
@@ -76,7 +76,15 @@ export default {
       return moment(timestamp).from();
     }
   },
+  computed: {
+    downloadMBs() {
+      return parseFloat(this.bytesDown/1024**2).toFixed(2);
+    }
+  },
   async mounted() {
+    requestService.onDownloadProgress(progressEvent=> {
+      this.bytesDown = progressEvent.loaded;
+    });
     await this.newRequest();
   },
 };
