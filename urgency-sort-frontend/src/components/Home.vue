@@ -39,6 +39,7 @@
           <span v-else>Request for self</span>
         </div>
       </div>
+      <div class="py-4" v-else>Waiting for requests to be downloaded...</div>
       <div class="">
         <button class="btn" v-on:click="newRequest">Skip request</button>
         <button class="btn" v-on:click="setRequestReport(-1)">Spam</button>
