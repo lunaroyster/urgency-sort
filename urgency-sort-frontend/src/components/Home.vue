@@ -1,8 +1,43 @@
 <template>
   <div id="home">
     <div class="container main">
-      <div class="">
-        {{request}}
+      <div class="py-2" v-if="request">
+        <div class="text-muted">{{getFrom(request.dateadded)}}</div>
+        <div v-if="request.needfood">
+          Food needed:
+          {{request.detailfood}}
+        </div>
+        <div v-if="request.needwater">
+          Water needed:
+          {{request.detailfood}}
+        </div>
+        <div v-if="request.needcloth">
+          Clothing needed:
+          {{request.detailcloth}}
+        </div>
+        <div v-if="request.needkit_util">
+          Kitchen Utilities needed:
+          {{request.detailkit_util}}
+        </div>
+        <div v-if="request.needtoilet">
+          Toiletries needed:
+          {{request.detailtoilet}}
+        </div>
+        <div v-if="request.needmed">
+          Medications needed:
+          {{request.detailmed}}
+        </div>
+        <div v-if="request.needrescue">
+          Rescue needed:
+          {{request.detailrescue}}
+        </div>
+        <div>
+          Other needs: {{request.needothers}}
+        </div>
+        <div>
+          <span v-if="request.is_request_for_others">Request for others</span>
+          <span v-else>Request for self</span>
+        </div>
       </div>
       <div class="">
         <button class="btn" v-on:click="newRequest">Skip request</button>
@@ -18,6 +53,8 @@
 
 <script>
 import requestService from '@/services/request';
+import moment from 'moment';
+console.log(moment);
 
 export default {
   name: 'Home',
@@ -34,6 +71,9 @@ export default {
       requestService.setRequestReport(this.request.id, report);
       await this.newRequest();
     },
+    getFrom(timestamp) {
+      return moment(timestamp).from();
+    }
   },
   async mounted() {
     await this.newRequest();
