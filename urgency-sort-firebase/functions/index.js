@@ -16,5 +16,16 @@ exports.test = functions.https.onRequest(async (req, res)=> {
 });
 
 exports.makeReports = functions.https.onRequest(async (req, res)=> {
-   res.send(req.body);
+   let reports = req.body.reports;
+   let reportIDs = Object.keys(reports);
+   for (let reportID of reportIDs) {
+      let report = reports[reportID];
+      if(typeof report != "number") continue;
+      await db.collection('requests').doc(reportID).set({reports: {[Date.now()]: report}}, {merge: true});
+   }
+   res.status(201).send();
+});
+
+exports.getUrgencies = functions.https.onRequest(async (req, res)=> {
+    
 });
