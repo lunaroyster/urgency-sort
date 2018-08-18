@@ -4,6 +4,7 @@ import Vue from 'vue';
 class RequestService {
   constructor() {
     this.downloadedRequests = null;
+    this.downloadedUrgencies = null;
     this.waitingReports = {};
     this.reportedRequests = [];
     this.eventCallbacks = {
@@ -17,6 +18,12 @@ class RequestService {
     });
     this.downloadedRequests = response.data;
     return this.downloadedRequests;
+  }
+  async getUrgencies() {
+    if(this.downloadedUrgencies) return this.downloadedUrgencies;
+    let response = await axios.get('https://us-central1-keralarescue-fef8e.cloudfunctions.net/getUrgencies');
+    this.downloadedUrgencies = response.data;
+    return this.downloadedUrgencies;
   }
   onDownloadProgress(cb) {
     this.eventCallbacks.onDownloadProgress.push(cb);
