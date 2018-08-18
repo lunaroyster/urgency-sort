@@ -5,6 +5,9 @@
         <li class="nav-item d-flex" style="align-items: center; font-size: 0.5em">
           <a class="nav-link" target="_blank" href="https://keralarescue.in">Kerala Rescue Main Site</a>
         </li>
+        <li class="nav-item d-flex" style="align-items: center; font-size: 0.5em">
+          <router-link class="nav-link" to="urgent">View Urgent Requests</router-link>
+        </li>
         <li class="nav-item">
           <a class="nav-link" target="_blank" href="https://github.com/lunaroyster/urgency-sort"><i class="fab fa-github"></i></a>
         </li>
