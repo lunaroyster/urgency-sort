@@ -60,10 +60,10 @@
         <button class="btn" v-on:click="newRequest">Skip request</button>
         <!--<button class="btn" v-on:click="setRequestReport(-1)">Spam</button>-->
         <div class="btn-group" role="group" aria-label="Basic example">
-          <button class="btn" v-on:click="setRequestReport(0)" style="background: lightgreen">Not Urgent</button>
-          <button class="btn" v-on:click="setRequestReport(1)" style="background: #ffff84">Urgent</button>
-          <button class="btn" v-on:click="setRequestReport(2)" style="background: #ffd27f">Very Urgent</button>
-          <button class="btn" v-on:click="setRequestReport(3)" style="background: #ff9b9b">Critical</button>
+          <button class="btn" v-on:click="setRequestReport(0)" style="background: hsl(120, 100%, 85%)">Not Urgent</button>
+          <button class="btn" v-on:click="setRequestReport(1)" style="background: hsl(60, 100%, 85%)">Urgent</button>
+          <button class="btn" v-on:click="setRequestReport(2)" style="background: hsl(39, 100%, 85%)">Very Urgent</button>
+          <button class="btn" v-on:click="setRequestReport(3)" style="background: hsl(0, 100%, 85%)">Critical</button>
         </div>
       </div>
       <div class="text-muted py-2" style="font-size: 1em">Sourced from keralarescue.in</div>
