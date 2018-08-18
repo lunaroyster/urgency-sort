@@ -65,6 +65,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ]),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../root'),
+        to: config.dev.assetsRoot,
+        ignore: ['.*']
+      }
+    ])
   ]
 })
 
