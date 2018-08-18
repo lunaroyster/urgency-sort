@@ -13,6 +13,7 @@ db.settings({
 exports.makeReports = functions.https.onRequest(async (req, res)=> {
    cors(req, res, () => {});
    let reports = req.body.reports;
+   console.log(req.body);
    let reportIDs = Object.keys(reports);
    for (let reportID of reportIDs) {
       let report = reports[reportID];

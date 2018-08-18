@@ -39,12 +39,12 @@ class RequestService {
     await axios.post(url, data);
     window.gtag('event', 'flush');
   }
-  setRequestReport(id, report) {
+  async setRequestReport(id, report) {
     if(typeof report !== "number") return;
     this.waitingReports[id] = report;
     this.reportedRequests.push(id);
     if (this.reportCount>=5) {
-      this.flushReports();
+      await this.flushReports();
     }
   }
   get reportCount() {
