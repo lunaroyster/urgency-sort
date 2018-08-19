@@ -2,7 +2,7 @@
   <div id="home">
     <div class="container main">
       <div class="py-4" v-if="request">
-        <h5 class="text-muted">Request #{{request.id}}</h5>
+        <h5 class="text-muted">Request <a :href="getRequestUrl(request.id)" target="_blank">#{{request.id}}</a></h5>
         <div class="text-muted">{{getFrom(request.dateadded)}} for <span v-if="request.is_request_for_others">someone else</span><span v-else>self</span></div>
         <div class="row">
           <div class="col-12 col-6-md">
@@ -93,12 +93,13 @@ export default {
     },
     getFrom(timestamp) {
       return moment(timestamp).from();
-    }
+    },
+    getRequestUrl: id=>`https://keralarescue.in/request_details/${id}/`,
   },
   computed: {
     downloadMBs() {
       return parseFloat(this.bytesDown/1024**2).toFixed(2);
-    }
+    },
   },
   async mounted() {
     requestService.onDownloadProgress(progressEvent=> {
