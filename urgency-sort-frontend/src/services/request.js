@@ -13,7 +13,7 @@ class RequestService {
   }
   async getRequests() {
     if(this.downloadedRequests) return this.downloadedRequests;
-    let response = await axios.get('/static/data.json', {
+    let response = await axios.get('https://storage.googleapis.com/kerala-crowdsource/latest.json', {
       onDownloadProgress: (event)=> {this.fireDownloadProgress(event)}
     });
     this.downloadedRequests = response.data;
