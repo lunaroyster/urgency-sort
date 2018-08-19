@@ -14,6 +14,7 @@ db.settings({
 
 exports.makeReports = functions.https.onRequest(async (req, res)=> {
    cors(req, res, () => {});
+   if(req.method=='OPTIONS') return;
    let reports = req.body.reports;
    console.log(req.body);
    let reportIDs = Object.keys(reports);
