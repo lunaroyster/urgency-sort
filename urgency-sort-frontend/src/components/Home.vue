@@ -1,12 +1,12 @@
 <template>
   <div id="home">
-    <div class="container main">
+    <div class="container" style="margin-top: 4em;">
       <div class="py-4" v-if="request">
         <div class="row">
           <div class="col-12 col-6-md">
             <div class="card border-0">
               <div class="card-body">
-                <h5 class="text-muted mb-4">Request <a :href="getRequestUrl(request.id)" target="_blank">#{{request.id}}</a></h5>
+                <h5 class="mb-4"><a :href="getRequestUrl(request.id)" style="color: unset;" target="_blank">#{{request.id}}</a></h5>
                 <table class="table">
                   <thead>
                     <tr>
