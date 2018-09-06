@@ -16,7 +16,7 @@
       </a>
       <h1 class="display-4">What now?</h1>
       <p>As a prototype, this site couldn't have been more successful. In the article above, I touch upon the aspects that people found most useful.</p>
-      <p>I've learnt many things building and operating this, and speaking to its users. I'm convinced a lot more can be done.</p>
+      <p>I've learnt many things building and operating this, and speaking to its users. I'm convinced a lot more can be done. If you can help in any way, DM me:</p>
       <a class="linkButton btn d-flex align-items-center my-2" href="https://twitter.com/itsarnavb" target="_blank">
         <i class="fab fa-twitter p-2 mr-2" style="font-size: 3em;"></i>
         <span>Follow me on Twitter.</span>
