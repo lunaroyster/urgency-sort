@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar fixed-top navbar-expand navbar-light">
+  <nav class="navbar navbar-expand navbar-light">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item d-flex" style="align-items: center; font-size: 0.5em">
